@@ -87,7 +87,7 @@ I compared circulating TIMP-1, TIMP-2, TIMP-3 and TIMP-4 between people with lat
 
 ### Analysis
 
-`GraphPad Prism` `BLAST` `NCBI tools`
+`GraphPad Prism` `BLAST` `NCBI tools` 'Google Colab'
 
 ### Programming (learning)
 
