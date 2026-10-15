@@ -92,7 +92,7 @@ I compared circulating TIMP-1, TIMP-2, TIMP-3 and TIMP-4 between people with lat
 ### Programming (learning)
 
 <p>
-<img src="https://skillicons.dev/icons?i=python,r,git,github,vscode"/>
+<img src="https://skillicons.dev/icons?i=python,r,git,github,vscode,google colab"/>
 </p>
 
 ---
