@@ -1,0 +1,223 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPzkerzcytOf2/1tuL63BYy",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/kalaidossdeepak2004-ctrl/Deepak-K/blob/main/Zebrafish.%20Seq%20Analysis%20(Biopython)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install biopython"
+      ],
+      "metadata": {
+        "id": "pBKzD-zN0cUX"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "fasta_data=\"\"\">zebrafish_gene\n",
+        "CCCAGTAGTGAGGGTGGNTCCCCGGTGAGAAAATTAAACAAAGNTCTTGGCGAGANATCGGCCCCGGCGC\n",
+        "TGGCGATGAAGGGCTGCGTCGGGTGGAAGGCCACGTCATGANTGGCCTCATCATGTTTTTCCCTGTG\"\"\""
+      ],
+      "metadata": {
+        "id": "3auxe1n1idPK"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from io import StringIO\n",
+        "from Bio import SeqIO\n",
+        "from Bio.Seq import Seq\n",
+        "from Bio.SeqUtils import gc_fraction\n",
+        "print(\"Sequence ID:\",record.id)\n",
+        "print(\"Sequence:\",record.seq)"
+      ],
+      "metadata": {
+        "id": "l0AqbqHwidNL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from io import StringIO\n",
+        "from Bio import SeqIO\n",
+        "from Bio.Seq import Seq\n",
+        "from Bio.SeqUtils import gc_fraction\n",
+        "\n",
+        "print(\"Sequence ID:\",record.id)\n",
+        "print(\"Sequence:\",record.seq)\n",
+        "print(\"GC Fraction:\",gc_fraction(record.seq)"
+      ],
+      "metadata": {
+        "id": "UokhZYzvidK0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from io import StringIO\n",
+        "from Bio import SeqIO\n",
+        "from Bio.Seq import Seq\n",
+        "from Bio.SeqUtils import gc_fraction\n",
+        "\n",
+        "record = SeqIO.read(StringIO(fasta_data),\"fasta\")\n",
+        "\n",
+        "print(\"Sequence ID:\", record.id)\n",
+        "print(\"Sequence:\",record.seq)\n",
+        "print(\"GC Fraction:\",gc_fraction(record.seq))"
+      ],
+      "metadata": {
+        "id": "a5VvyE-w0cIa"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dna_seq = record.seq\n",
+        "\n",
+        "print(\"DNA Sequence:\", dna_seq)\n",
+        "print(\"Type of dna_seq:\", type(dna_seq))\n",
+        "print(len(dna_seq))"
+      ],
+      "metadata": {
+        "id": "AgWMvLz0opjs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "complement_seq = dna_seq.complement()\n",
+        "reverse_complement_seq = dna_seq.reverse_complement()\n",
+        "print(dna_seq)\n",
+        "print(complement_seq)\n",
+        "print(reverse_complement_seq)"
+      ],
+      "metadata": {
+        "id": "jSQHJzD6opgj"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mrna_seq =dna_seq.transcribe()\n",
+        "print(mrna_seq)\n",
+        "\n",
+        "protein_seq = mrna_seq.translate()\n",
+        "print(protein_seq)"
+      ],
+      "metadata": {
+        "id": "Pygcb2g6opek"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "protein_direct =dna_seq.translate()\n",
+        "print(protein_direct)"
+      ],
+      "metadata": {
+        "id": "ixbR9181opcm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "gc_value = gc_fraction(dna_seq)\n",
+        "print(\"GC Fraction:\", gc_value)\n",
+        "\n",
+        "# Calculate the actual GC count from the DNA sequence\n",
+        "gc_count = dna_seq.count(\"G\") + dna_seq.count(\"C\")\n",
+        "print(\"GC Count:\", gc_count)"
+      ],
+      "metadata": {
+        "id": "RJgwvu0yrjyR"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "gc_value = gc_fraction(dna_seq)\n",
+        "gc_count = dna_seq.count(\"G\") + dna_seq.count(\"C\")\n",
+        "print(gc_value)\n",
+        "print(\"gc_format:\",gc_value*100)\n",
+        "print(\"GC Count:\", gc_count)"
+      ],
+      "metadata": {
+        "id": "A8a_d4_Vopac"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "count_a = dna_seq.count(\"A\")\n",
+        "count_t = dna_seq.count(\"T\")\n",
+        "count_g = dna_seq.count(\"G\")\n",
+        "count_c = dna_seq.count(\"C\")\n",
+        "print(count_a)\n",
+        "print(count_t)\n",
+        "print(count_g)\n",
+        "print(count_c)"
+      ],
+      "metadata": {
+        "id": "fD8Qor1jsuB1"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "75Gu4c7ozG_-"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
